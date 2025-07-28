@@ -53,3 +53,23 @@ it links against our library:
 [dsc@fastbox shared_lib (master ✗)]$ ldd /build/bin/cool_test
 	libcool_lib.so.0
 ```
+
+## Building for Android
+
+git clone https://github.com/kroketio/simple_shared_lib.git
+cd simple_shared_lib
+
+The path to android ndk is usually ~/Android/Sdk/ndk/27.0.12077937
+
+mkdir build-armv7 && cd build-armv7
+
+cmake ../ \
+  -DCMAKE_TOOLCHAIN_FILE=/home/samuel/Android/Sdk/ndk/27.0.12077973/build/cmake/android.toolchain.cmake \
+  -DANDROID_ABI=armeabi-v7a \
+  -DANDROID_PLATFORM=android-24 \
+  -DCMAKE_BUILD_TYPE=Release
+
+cmake --build . --target cool_lib -- -j4
+
+Verify it with ``` $file libcool_lib.so ```, the output should be ```ELF 32-bit LSB shared object, ARM, EABI5 ... ```
+

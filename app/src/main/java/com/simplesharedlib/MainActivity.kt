@@ -2,7 +2,7 @@ package com.simplesharedlib
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
+//import android.widget.TextView
 import com.simplesharedlib.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

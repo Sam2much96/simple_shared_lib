@@ -42,6 +42,11 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    sourceSets { // bundle the lib directory with android
+        getByName("main") {
+            jniLibs.srcDirs("libs")
+        }
+    }
 }
 
 dependencies {

@@ -73,3 +73,8 @@ cmake --build . --target cool_lib -- -j4
 
 Verify it with ``` $file libcool_lib.so ```, the output should be ```ELF 32-bit LSB shared object, ARM, EABI5 ... ```
 
+Make sure the dynamic library's functions aren't demangled, verify with ``` nm -D libcool_lib.so | grep whatsup ```
+
+## Library Linkage
+Check for the linked libraries by running the command ``` ~/Android/Sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/linux-x86_64/bin$ llvm-readelf -d ~/libcool_lib.so
+ ```
